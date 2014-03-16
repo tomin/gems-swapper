@@ -1,8 +1,9 @@
 
 /*
-	Game : Candy Crush clone (simple) made in 2 days with Javascript, html/css (dom), Jquery & HammerJS
+	Game: Candy Crush clone (simple) made in 2 days with Javascript, html/css (dom), Jquery & HammerJS
 	Author: Didier Chartrain <copycut.design@gmail.com> <http://github.com/copycut>
 	Date: 14 March 2014
+	Update: small debug @ 16 March 2014 - Combo updating
 */
 
 
@@ -103,17 +104,19 @@ var Game = function() {
 			this.level[aID] = bType;
 			this.level[bID] = aType;
 
+			this.comboUpdate(0);
+
 			//console.log("a&b types: ", bType, aType);
 
 			a.attr('data-id', bID).animate({
 				top: bTop,
 				left: bLeft
-			}, 200);
+			}, 250);
 
 			b.attr('data-id', aID).animate({
 				top: aTop,
 				left: aLeft
-			}, 200, function() {
+			}, 250, function() {
 				that.switchEnd = true;
 				that.checkLines();
 			});
@@ -173,7 +176,6 @@ var Game = function() {
 		}
 
 		if (counter === this.size) {
-			console.log('Control release !');
 			this.releaseGameControl(true);
 			return true;
 		} else {
@@ -226,12 +228,13 @@ var Game = function() {
 			marginLeft: difference,
 			height: 0,
 			width: 0
-		}, 400, function() {
+		}, 500, function() {
 			$(this).remove();
 			that.scoreUpdate(100);
 		});
 
 		if (that.fillEnd) {
+			that.comboUpdate(1);
 			that.fillHoles();
 		}
 	};
@@ -247,7 +250,7 @@ var Game = function() {
 		this.level[position] = 0;
 
 		if (line === 1) {
-			this.createNewRandomGem(colPosition);	
+			this.createNewRandomGem(colPosition);
 		}
 	};
 
@@ -299,7 +302,6 @@ var Game = function() {
 
 				if (this.level[under] === 0 && this.level[under] !== undefined) {
 					this.moveGems(i, lignePosition, colPosition, under);
-					this.comboUpdate(1);
 				}
 
 				break;
@@ -314,12 +316,11 @@ var Game = function() {
 		//console.log(this.level.length, counter);
 
 		if (this.level.length === counter) {
-			console.log('no hole left');
+			//console.log('no hole left');
 			this.fillEnd = true;
-			this.comboUpdate(0);
-			return setTimeout($.proxy(this.checkLines, this), 100);
+			return setTimeout($.proxy(this.checkLines, this), 50);
 		} else {
-			return setTimeout($.proxy(this.fillHoles, this), 100);
+			return setTimeout($.proxy(this.fillHoles, this), 50);
 		}
 	};
 
@@ -331,16 +332,15 @@ var Game = function() {
 
 	this.comboUpdate = function(combo){
 
-		combo = Math.ceil(combo / 3);
-
 		if (combo > 0) {
 			this.combo = this.combo + combo;
 			this.ui.find('.combo').text(this.combo);
 		} else {
-			this.combo = combo;
+			this.combo = 0;
 		}
+
 		if (this.combo >= this.bestCombo) {
-			this.bestCombo = this.bestCombo + this.combo;
+			this.bestCombo = this.combo;
 			this.ui.find('.bestCombo').text(this.bestCombo);
 		}
 	};
@@ -357,7 +357,7 @@ $(document).ready(function() {
 		event.preventDefault();
 		var value = +$(this).val();
 		$('.message').hide();
-		console.log(value);
+		//console.log(value);
 		newGame = new Game();
 		newGame.init(value, $game, $ui);
 		
