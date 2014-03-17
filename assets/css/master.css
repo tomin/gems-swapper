@@ -1,15 +1,12 @@
 
-html {
-	background: url(../images/bg.jpg) center top no-repeat;
-	background-size: 100% 100%;
-}
-
 body {
 	padding: 0;
 	margin: 0;
 	height: 100%;
 	font-family: "Helvetica Neue", "Arial", sans-serif;
 	font-size: 1em;
+	background: #29485c url(../images/bg.jpg) center top no-repeat;
+	background-size: 100% 100%;
 }
 
 .twitterButton {
@@ -76,12 +73,12 @@ body {
 .footer {
 	text-align: center;
 	font-size: 12px;
-	color: #24633D;
+	color: #47B372;
 	padding-bottom: 50px
 }
 
 .footer a {
-	color: #134125;
+	color: #0FDD60;
 }
 
 
