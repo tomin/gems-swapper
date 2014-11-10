@@ -1,18 +1,7 @@
-
-<<<<<<< HEAD
 html {
 	height: 100%;
 }
 
-body {
-	padding: 0 0 50px 0;
-	margin: 0;
-	background: url(../images/bg.jpg) center top no-repeat;
-	background-size: 100% 100%;
-	height: 100%;
-	font-family: "Helvetica Neue", "Arial", sans-serif;
-	font-size: 1em;
-=======
 body {
 	padding: 0;
 	margin: 0;
@@ -38,7 +27,6 @@ body {
 	top: 50%;
 	left: 50%;
 	margin: -10px 0 0 -38px;
->>>>>>> gh-pages
 }
 
 .ui {
@@ -55,37 +43,25 @@ body {
 	padding: 20px 0 10px;
 	margin: 0;
 	color: #fff;
-<<<<<<< HEAD
-	text-shadow: 0 0 10px rgba(0,0,0,0.5);
-=======
-	text-shadow: 0 0 20px #63DBB5, 3px 3px 0px #63DBB5;
+	text-shadow: 0 0 20px #63DBB5, 3px 3px 0 #63DBB5;
 }
 
 .ui h1 strong {
 	text-transform: uppercase;
 	letter-spacing: -1px;
 	font-weight: bolder;
->>>>>>> gh-pages
 }
 
 .ui p {
 	float: left;
-<<<<<<< HEAD
-	background: rgba(0,0,0,0.20);
-=======
 	background: white;
->>>>>>> gh-pages
 	border-radius: 10px;
 	padding: 10px;
 	margin: 5px 5px 0 0;
 	font-size: 1em;
 	line-height: 1;
 	width: 177px;
-<<<<<<< HEAD
-	color: #fff;
-=======
 	color: #63DBB5;
->>>>>>> gh-pages
 }
 
 .ui p#bestCombo {
@@ -100,20 +76,16 @@ body {
 .footer {
 	text-align: center;
 	font-size: 12px;
-<<<<<<< HEAD
 	color: #000;
 }
 
 .footer a {
-	color: #000;
-=======
 	color: #47B372;
 	padding-bottom: 50px
 }
 
 .footer a {
 	color: #0FDD60;
->>>>>>> gh-pages
 }
 
 
@@ -188,12 +160,8 @@ body {
 	height: 600px;
 	width: 600px;
 	background: rgba(255, 255, 255, 0.25);
-<<<<<<< HEAD
-	border: 1px solid rgba(255, 255, 255, 0.15);
-=======
 	border: 1px solid rgba(255, 255, 255, 0.35);
 	box-shadow: inset 0 0 30px rgba(47, 187, 86,0.35);
->>>>>>> gh-pages
 	margin: 0 auto;
 	position: relative;
 	border-radius: 10px
