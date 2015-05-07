@@ -1,11 +1,7 @@
-
 /*
 	Game: Candy Crush clone (simple) made in 2 days with Javascript, html/css (dom), Jquery & HammerJS
 	Author: Didier Chartrain <copycut.design@gmail.com> <http://github.com/copycut>
-	Date: 14 March 2014
-	Update: small debug @ 16 March 2014 - Combo updating
 */
-
 
 var newGame;
 
@@ -18,7 +14,7 @@ var Game = function() {
 		this.size = this.originalSize * this.originalSize;
 		this.caseHeight = base.height() / this.originalSize;
 		this.level = [];
-		this.typesOfGems = 5;
+		this.typesOfGems = 3;
 		this.fillEnd = true;
 		this.switchEnd = true;
 		this.playerCanControl = false;
@@ -350,22 +346,7 @@ var Game = function() {
 $(document).ready(function() {
 	var $game = $('#game');
 	var $ui = $('#ui');
-
-	
-
-	$('.message button').on('click', function(event) {
-		event.preventDefault();
-		var value = +$(this).val();
-		$('.message').hide();
-		//console.log(value);
-		newGame = new Game();
-		newGame.init(value, $game, $ui);
-		
-	});
-
-
-	
-	
-	
-
+    var value = 5;
+    newGame = new Game();
+    newGame.init(value, $game, $ui);
 });
